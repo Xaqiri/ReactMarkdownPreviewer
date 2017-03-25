@@ -1,0 +1,19 @@
+{
+  "name": "fcc-react-md",
+  "version": "1.0.0",
+  "description": "A markdown previewer using React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xaqiri/ReactMarkdownPreviewer.git"
+  },
+  "author": "Zachary Robbins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xaqiri/ReactMarkdownPreviewer/issues"
+  },
+  "homepage": "https://github.com/Xaqiri/ReactMarkdownPreviewer#readme"
+}
