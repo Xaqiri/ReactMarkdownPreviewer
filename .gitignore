@@ -12,6 +12,8 @@
 node_modules/
 .tmp/
 .babelrc 
+webpack.config.js
+server.js 
 
 # OS or Editor folders
 .DS_Store
