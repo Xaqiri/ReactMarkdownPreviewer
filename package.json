@@ -15,5 +15,18 @@
   "bugs": {
     "url": "https://github.com/Xaqiri/ReactMarkdownPreviewer/issues"
   },
-  "homepage": "https://github.com/Xaqiri/ReactMarkdownPreviewer#readme"
+  "homepage": "https://github.com/Xaqiri/ReactMarkdownPreviewer#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-react": "^6.23.0",
+    "gulp": "^3.9.1",
+    "webpack": "^2.3.2"
+  }
 }
