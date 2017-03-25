@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 83);
+/******/ 	return __webpack_require__(__webpack_require__.s = 84);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -9543,27 +9543,74 @@ module.exports = ReactPropTypesSecret;
 /***/ (function(module, exports, __webpack_require__) {
 
 const React = __webpack_require__(32);
-const Nav = __webpack_require__(84);
 
-class Main extends React.Component {
+const styles = {
+  background: 'blue',
+  color: 'white',
+  width: '50%',
+  height: '500px',
+  margin: '0 auto',
+  padding: '0 1rem'
+};
+
+class Display extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return React.createElement(
       'div',
-      null,
-      React.createElement(Nav, null),
+      { style: styles },
       React.createElement(
         'h1',
         null,
-        'Hello batman'
+        this.props.text
       )
     );
   }
 }
 
-module.exports = Main;
+module.exports = Display;
 
 /***/ }),
 /* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const React = __webpack_require__(32);
+
+const styles = {
+  width: '50%',
+  height: '500px',
+  margin: '0 auto'
+};
+
+const textAreaStyle = {
+  width: '100%',
+  height: '100%',
+  fontSize: '16px',
+  padding: '0 1rem'
+};
+
+let Form = React.createClass({
+  displayName: 'Form',
+
+  handleChange: function (t) {
+    let text = t.target.value;
+    this.props.onChange(text);
+  },
+  render: function () {
+    return React.createElement(
+      'div',
+      { style: styles },
+      React.createElement('textarea', { ref: 'markdown', onChange: this.handleChange, style: textAreaStyle })
+    );
+  }
+});
+
+module.exports = Form;
+
+/***/ }),
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9573,36 +9620,43 @@ module.exports = __webpack_require__(112);
 
 
 /***/ }),
-/* 83 */
-/***/ (function(module, exports, __webpack_require__) {
-
-const React = __webpack_require__(32);
-const ReactDOM = __webpack_require__(82);
-const Main = __webpack_require__(81);
-
-ReactDOM.render(React.createElement(Main, null), document.getElementById('app'));
-
-/***/ }),
 /* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const React = __webpack_require__(32);
+const ReactDOM = __webpack_require__(83);
+const Form = __webpack_require__(82);
+const Display = __webpack_require__(81);
 
-class Nav extends React.Component {
-  render() {
+const styles = {
+  width: '80%',
+  height: '100%',
+  margin: '2% auto',
+  display: 'flex',
+  flexDirection: 'row'
+};
+
+let App = React.createClass({
+  displayName: 'App',
+
+  getInitialState: function () {
+    return { text: 'Batman' };
+  },
+  changeText: function (text) {
+    this.setState({ text: text });
+  },
+
+  render: function () {
     return React.createElement(
       'div',
-      null,
-      React.createElement(
-        'h1',
-        null,
-        'This is the navigation bar'
-      )
+      { style: styles },
+      React.createElement(Form, { onChange: this.changeText }),
+      React.createElement(Display, { text: this.state.text })
     );
   }
-}
+});
 
-module.exports = Nav;
+ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
 
 /***/ }),
 /* 85 */

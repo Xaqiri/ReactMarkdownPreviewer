@@ -1,9 +1,9 @@
 var HTMLWebpackPlugin = require('html-webpack-plugin')
-var HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
-  template: 'index.html',
-  filename: '../index.html',
-  inject: 'body'
-})
+//var HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
+//  template: 'index.html',
+//  filename: '../index.html',
+//  inject: 'body'
+//})
 
 module.exports = {
   entry: __dirname + '/js/app.jsx',
@@ -22,6 +22,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx']
-  },
-  plugins: [HTMLWebpackPluginConfig]
+  }
+  //plugins: [HTMLWebpackPluginConfig]
 }
