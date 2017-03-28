@@ -6,7 +6,7 @@ var HTMLWebpackPlugin = require('html-webpack-plugin')
 //})
 
 module.exports = {
-  entry: __dirname + '/js/app.jsx',
+  entry: './js/app.jsx',
   module: {
     loaders: [
       {

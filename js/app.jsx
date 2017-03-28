@@ -13,8 +13,9 @@ const styles = {
 
 let App = React.createClass( {
   getInitialState: function () {
-    return {text: 'Batman'}
+    return {text: 'This is styled using __markdown__.'}
   },
+
   changeText: function (text) {
     this.setState({text: text})
   },
@@ -22,7 +23,7 @@ let App = React.createClass( {
   render: function () {
     return (
       <div style={styles}>
-       <Form onChange={this.changeText}/>
+       <Form onChange={this.changeText} text={this.state.text}/>
        <Display text={this.state.text}/>
       </div>
     )

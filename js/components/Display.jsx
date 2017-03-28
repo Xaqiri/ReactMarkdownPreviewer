@@ -1,22 +1,22 @@
 const React = require('react')
 
 const styles = {
-  background: 'blue',
-  color: 'white',
   width: '50%',
-  height: '500px',
+  height: '100%',
   margin: '0 auto',
-  padding: '0 1rem'
+  padding: '0 1rem',
+  overflorWrap: 'normal'
 }
 
 class Display extends React.Component {
   constructor (props) {
     super(props)
   }
+
   render () {
     return (
       <div style={styles}>
-        <h1>{this.props.text}</h1>
+        <div dangerouslySetInnerHTML={{__html: marked(this.props.text)}}></div>
       </div>
     )
   }

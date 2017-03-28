@@ -9545,27 +9545,23 @@ module.exports = ReactPropTypesSecret;
 const React = __webpack_require__(32);
 
 const styles = {
-  background: 'blue',
-  color: 'white',
   width: '50%',
-  height: '500px',
+  height: '100%',
   margin: '0 auto',
-  padding: '0 1rem'
+  padding: '0 1rem',
+  overflorWrap: 'normal'
 };
 
 class Display extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return React.createElement(
       'div',
       { style: styles },
-      React.createElement(
-        'h1',
-        null,
-        this.props.text
-      )
+      React.createElement('div', { dangerouslySetInnerHTML: { __html: marked(this.props.text) } })
     );
   }
 }
@@ -9581,14 +9577,15 @@ const React = __webpack_require__(32);
 const styles = {
   width: '50%',
   height: '500px',
+  padding: '.5rem',
   margin: '0 auto'
 };
 
 const textAreaStyle = {
-  width: '100%',
+  width: '90%',
   height: '100%',
   fontSize: '16px',
-  padding: '0 1rem'
+  padding: '0 .5rem'
 };
 
 let Form = React.createClass({
@@ -9602,7 +9599,7 @@ let Form = React.createClass({
     return React.createElement(
       'div',
       { style: styles },
-      React.createElement('textarea', { ref: 'markdown', onChange: this.handleChange, style: textAreaStyle })
+      React.createElement('textarea', { ref: 'markdown', onChange: this.handleChange, rows: '25', cols: '30', style: textAreaStyle, defaultValue: this.props.text })
     );
   }
 });
@@ -9640,8 +9637,9 @@ let App = React.createClass({
   displayName: 'App',
 
   getInitialState: function () {
-    return { text: 'Batman' };
+    return { text: 'This is styled using __markdown__.' };
   },
+
   changeText: function (text) {
     this.setState({ text: text });
   },
@@ -9650,7 +9648,7 @@ let App = React.createClass({
     return React.createElement(
       'div',
       { style: styles },
-      React.createElement(Form, { onChange: this.changeText }),
+      React.createElement(Form, { onChange: this.changeText, text: this.state.text }),
       React.createElement(Display, { text: this.state.text })
     );
   }
